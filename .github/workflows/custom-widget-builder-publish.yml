@@ -29,11 +29,10 @@ jobs:
         working-directory: ./custom-widget-builder
         run: |          
           npm pack
-      - uses: marvinpinto/action-automatic-releases@latest
-        workflow-directory: ./custom-widget-builder
+      - uses: marvinpinto/action-automatic-releases@latest        
         with:
           repo_token: ${{ secrets.GH_PERSONNAL_ACCES_TOKEN }}
           prerelease: false
           files: |
             LICENSE
-            *.tgz
+            ./custom-widget-builder*.tgz
