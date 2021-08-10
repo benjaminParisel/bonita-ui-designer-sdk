@@ -13,14 +13,16 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Run a multi-line script
-        run: |
-          cd custom-widget-builder
+        working-directory: ./custom-widget-builder
+        run: |          
           npm ci
-          npm run typescript-compile
-          npm run test
+          npm run tsc && npm run test
