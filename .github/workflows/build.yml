@@ -25,4 +25,5 @@ jobs:
         working-directory: ./custom-widget-builder
         run: |          
           npm ci
-          npm run tsc && npm run test
+          npm run build
+          npm run test
