@@ -21,25 +21,19 @@ jobs:
           registry-url: https://registry.npmjs.org/
 
       - name: build and test
-        run: | 
-          cd custom-widget-builder
+        working-directory: ./custom-widget-builder
+        run: |           
           npm ci
-          npm run typescript-compile
-          npm run test
+          npm run build          
       - name: Prepare package
-        run: |
-          cd custom-widget-builder
+        working-directory: ./custom-widget-builder
+        run: |          
           npm pack
       - uses: marvinpinto/action-automatic-releases@latest
+        workflow-directory: ./custom-widget-builder
         with:
           repo_token: ${{ secrets.GH_PERSONNAL_ACCES_TOKEN }}
           prerelease: false
           files: |
             LICENSE
             *.tgz
-      - name: npm publish
-        run: |
-          cd custom-widget-builder 
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTOMATION_TOKEN}}

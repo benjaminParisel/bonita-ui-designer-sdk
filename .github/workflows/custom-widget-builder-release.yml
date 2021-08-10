@@ -27,7 +27,6 @@ jobs:
         with:
           node-version: '14'          
 
-      - name: Create github tag        
-        run: |
-            cd custom-widget-builder/infrastructure/
-            ./custom-widget-builder-release.sh ${{github.event.inputs.version}}
+      - name: Create github tag      
+        working-directory: ./custom-widget-builder/infrastructure
+        run: ./custom-widget-builder-release.sh ${{github.event.inputs.version}}

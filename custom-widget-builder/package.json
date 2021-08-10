@@ -4,7 +4,7 @@
   "description": "Bonitasoft UI Designer: Custom Widget Builder",
   "main": "build/src/starter.js",
   "files": [
-    "build/src"
+    "build/src/*"
   ],
   "prepublish": "tsc",
   "license": "GPLv2",
@@ -13,7 +13,7 @@
     "url": "git+https://github.com/bonitasoft/bonita-ui-designer-sdk.git"
   },
   "scripts": {
-    "typescript-compile": "tsc",
+    "build": "tsc",
     "test": "jest 2>&1",
     "test:dev": "jest --watch"
   },
