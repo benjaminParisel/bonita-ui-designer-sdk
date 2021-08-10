@@ -35,4 +35,4 @@ jobs:
           prerelease: false
           files: |
             LICENSE
-            ./custom-widget-builder*.tgz
+            ./custom-widget-builder/*.tgz
